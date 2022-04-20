@@ -11,12 +11,9 @@ import java.util.List;
 public class SalaryCalculationIMPL implements ISalaryCalculation {
     public final static String PATH_SALARY = ConfigReadAndWriteFile.PATH + "salary.txt";
     public static List<Salary> salaryList = new ConfigReadAndWriteFile<Salary>().readFromFile(PATH_SALARY);
-    List<Staff> staffList = StaffServiceIMPL.staffList;
-//    SalaryController salaryController = new SalaryController();
 
     @Override
     public List<Salary> findAll() {
-
         return salaryList;
     }
 

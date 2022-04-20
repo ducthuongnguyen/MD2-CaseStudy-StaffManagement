@@ -5,6 +5,7 @@ import controller.StaffController;
 import controller.UserController;
 import model.Salary;
 import model.Staff;
+import service.salary_calculation.SalaryCalculationIMPL;
 import service.staff.StaffServiceIMPL;
 import service.user.UserServiceIMPL;
 
@@ -18,6 +19,7 @@ public class ManagerView {
     static StaffController staffController = new StaffController();
     static UserController userController = new UserController();
     static SalaryController salaryController = new SalaryController();
+    static SalaryCalculationIMPL salaryCalculationIMPL = new SalaryCalculationIMPL();
 
     public ManagerView() {
         System.out.println("==================== MENU FOR MANAGER ====================");
@@ -120,9 +122,6 @@ public class ManagerView {
                 }
             }
 
-//            System.out.println("Enter staff's status (true - working or false - retired): ");
-//            boolean status;
-//            status = Boolean.parseBoolean(scanner.nextLine());
 
             System.out.println("Enter staff's type of working (PT represent Part-time or FT represents Full-time): ");
             String workingType;
@@ -247,7 +246,6 @@ public class ManagerView {
                 System.out.println("Enter staff's name you want to filter: ");
                 String name = scanner.nextLine();
                 System.out.println(staffController.filterByName(name));
-                System.out.println(name);
                 backMenuForManager();
                 break;
             case 2:
