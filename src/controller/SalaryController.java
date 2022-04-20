@@ -1,6 +1,5 @@
 package controller;
 
-import dto.SalaryDTO;
 import model.Salary;
 import service.salary_calculation.SalaryCalculationIMPL;
 import view.ManagerView;
