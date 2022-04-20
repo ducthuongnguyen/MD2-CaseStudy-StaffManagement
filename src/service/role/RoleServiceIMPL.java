@@ -5,7 +5,6 @@ import model.Role;
 import model.RoleName;
 
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 public class RoleServiceIMPL implements IRoleService {
     public static String PATH_ROLE = ConfigReadAndWriteFile.PATH + "role.txt";

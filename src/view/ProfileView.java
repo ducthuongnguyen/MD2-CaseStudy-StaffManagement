@@ -13,40 +13,27 @@ import java.util.Set;
 
 
 public class ProfileView {
-    Scanner scanner = new Scanner(System.in);
+//    Scanner scanner = new Scanner(System.in);
     List<UserPrincipal> userPrincipalList = UserPrincipalServiceIMPL.userPrincipalsList;
     static UserPrincipalServiceIMPL userPrincipalServiceIMPL = new UserPrincipalServiceIMPL();
     Set<String> roleSet =userPrincipalList.get(0).getRoleSet();
     List<String> roleList =new ArrayList<>(roleSet);
-boolean checkPermission = (roleList.get(0).toUpperCase()).equals(RoleName.MANAGER);
+boolean checkPermission = roleList.get(0).equals("MANAGER");
     public ProfileView() {
-        if (userPrincipalList.size() != 0) {
+//        if (userPrincipalList.size() != 0) {
             System.out.println("Welcome Profile: " + userPrincipalList.get(0).getName());
-            System.out.println("Please choose any options: ");
-            System.out.println(roleList.get(0));
-            System.out.println(RoleName.MANAGER);
-            System.out.println(checkPermission);
-            if (!checkPermission){
+            if (checkPermission){
                 new ManagerView();
             }else {
                 new StaffView();
             }
-        } else {
-            System.out.println("Please Login!");
-        }
-        System.out.println("2. Back Menu");
-        int chooseProfile = scanner.nextInt();
-        switch (chooseProfile) {
-            case 1:
-                logOut();
-                new Main();
-            case 2:
-                new Main();
-        }
-        String backMenu = scanner.nextLine();
-        if (backMenu.equalsIgnoreCase("quit")){
-            new Main();
-        }
+//        } else {
+//            System.out.println("Please Login!");
+//        }
+//        String backMenu = scanner.nextLine();
+//        if (backMenu.equalsIgnoreCase("quit")){
+//            new Main();
+//        }
     }
 
     public static void logOut() {

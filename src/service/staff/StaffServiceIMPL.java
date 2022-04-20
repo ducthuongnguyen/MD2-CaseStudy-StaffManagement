@@ -2,6 +2,7 @@ package service.staff;
 
 import com.sun.xml.internal.txw2.output.DumpSerializer;
 import config.ConfigReadAndWriteFile;
+import model.Salary;
 import model.Staff;
 import model.User;
 
@@ -11,6 +12,9 @@ import java.util.List;
 public class StaffServiceIMPL implements IStaffService {
     public final static String PATH_STAFF = ConfigReadAndWriteFile.PATH + "staff.txt";
     public static List<Staff> staffList = new ConfigReadAndWriteFile<Staff>().readFromFile(PATH_STAFF);
+
+    public final static String PATH_SALARY = ConfigReadAndWriteFile.PATH + "salary.txt";
+    public static List<Salary> salaryList = new ConfigReadAndWriteFile<Salary>().readFromFile(PATH_SALARY);
 
     @Override
     public List<Staff> findAll() {
@@ -22,6 +26,10 @@ public class StaffServiceIMPL implements IStaffService {
     public void save(Staff staff) {
         staffList.add(staff);
     }
+
+//    public void saveSalaryStaff(Staff staff) {
+//        salaryList.add(staff);
+//    }
 
     public void deleteById(int id) {
         boolean check = false;

@@ -10,12 +10,9 @@ import service.role.RoleServiceIMPL;
 import service.user.UserServiceIMPL;
 import service.user_principal.UserPrincipalServiceIMPL;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class UserController {
     UserServiceIMPL userServiceIMPL = new UserServiceIMPL();
-    RoleServiceIMPL roleServiceIMPL = new RoleServiceIMPL();
+//    RoleServiceIMPL roleServiceIMPL = new RoleServiceIMPL();
     UserPrincipalServiceIMPL userPrincipalServiceIMPL = new UserPrincipalServiceIMPL();
 
     public void register(SignUpDTO signUpDTO) {
@@ -56,4 +53,7 @@ public class UserController {
         }
     }
 
+    public void deleteAccount(String userName) {
+        userServiceIMPL.deleteByUserName(userName);
+    }
 }

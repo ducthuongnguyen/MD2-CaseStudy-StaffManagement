@@ -11,6 +11,7 @@ public class StaffController {
     public void createStaff(Staff staff) {
         staffServiceIMPL.save(staff);
         staffServiceIMPL.findAll();
+
     }
 
     public List<Staff> showListStaff() {

@@ -15,7 +15,6 @@ public class RegisterView {
     UserController userController = new UserController();
     UserServiceIMPL userServiceIMPL = new UserServiceIMPL();
      public RegisterView() {
-         System.out.println(UserServiceIMPL.userList);
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your display name, no blank: ");
         String displayName;

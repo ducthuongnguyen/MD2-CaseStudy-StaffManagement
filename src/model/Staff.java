@@ -8,7 +8,6 @@ public class Staff implements Serializable {
     private String gender;
     private boolean status;
     private String workingType;
-    private Salary salary;
     private String workingPlace;
     private String position;
     private String department;
@@ -18,13 +17,12 @@ public class Staff implements Serializable {
     }
 
 
-    public Staff(int id, String name, String gender, boolean status, String workingType, Salary salary, String workingPlace, String position, String department) {
+    public Staff(int id, String name, String gender, boolean status, String workingType, String workingPlace, String position, String department) {
         this.id = id;
         this.name = name;
         this.gender = gender;
         this.status = status;
         this.workingType = workingType;
-        this.salary = salary;
         this.workingPlace = workingPlace;
         this.position = position;
         this.department = department;
@@ -43,17 +41,6 @@ public class Staff implements Serializable {
     public Staff(String name, boolean status) {
         this.name = name;
         this.status = status;
-    }
-
-    public Staff(int id, String name, String gender, boolean status, String workingType, String workingPlace, String position, String department) {
-        this.id = id;
-        this.name = name;
-        this.gender = gender;
-        this.status = status;
-        this.workingPlace = workingPlace;
-        this.workingType = workingType;
-        this.position = position;
-        this.department = department;
     }
 
     public String getWorkingPlace() {
@@ -96,15 +83,6 @@ public class Staff implements Serializable {
         this.status = status;
     }
 
-    public Salary getSalary() {
-        return salary;
-    }
-
-    public void setSalary(Salary salary) {
-        this.salary = salary;
-        Salary.setSalaryPerMonth();
-    }
-
     public String getWorkingType() {
         return workingType;
     }
@@ -139,7 +117,6 @@ public class Staff implements Serializable {
                     ", name='" + name + '\'' +
                     ", gender='" + gender + '\'' +
                     ", status= Working" +
-                    ", salary=" + salary +
                     ", working type=" + workingType +
                     ", workingPlace='" + workingPlace + '\'' +
                     ", position='" + position + '\'' +
@@ -151,7 +128,6 @@ public class Staff implements Serializable {
                     ", name='" + name + '\'' +
                     ", gender='" + gender + '\'' +
                     ", status= Retired"  +
-                    ", salary=" + salary +
                     ", working type=" + workingType +
                     ", workingPlace='" + workingPlace + '\'' +
                     ", position='" + position + '\'' +

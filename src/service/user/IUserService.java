@@ -7,4 +7,5 @@ public interface IUserService extends IServiceGeneric<User> {
 boolean existedByUserName(String username);
 boolean checkLogin(String username, String password);
 User findByUserName(String username);
+void deleteByUserName(String userName);
 }
