@@ -1,12 +1,8 @@
 package service.staff;
 
-import com.sun.xml.internal.txw2.output.DumpSerializer;
 import config.ConfigReadAndWriteFile;
-import controller.SalaryController;
 import model.Salary;
 import model.Staff;
-import model.User;
-import service.salary_calculation.SalaryCalculationIMPL;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +12,7 @@ import static service.salary_calculation.SalaryCalculationIMPL.salaryList;
 public class StaffServiceIMPL implements IStaffService {
     public final static String PATH_STAFF = ConfigReadAndWriteFile.PATH + "staff.txt";
     public static List<Staff> staffList = new ConfigReadAndWriteFile<Staff>().readFromFile(PATH_STAFF);
-
     public final static String PATH_SALARY = ConfigReadAndWriteFile.PATH + "salary.txt";
-//    public static List<Salary> salaryList = new ConfigReadAndWriteFile<Salary>().readFromFile(PATH_SALARY);
-    SalaryCalculationIMPL salaryCalculationIMPL = new SalaryCalculationIMPL();
 
     @Override
     public List<Staff> findAll() {
@@ -105,56 +98,37 @@ public class StaffServiceIMPL implements IStaffService {
         }
     }
 
-    @Override
-    public int calculateSalary(String workingType, int workingDays) {
-
-        return 0;
-    }
 
     @Override
     public List<Staff> filterByWorkingType(String workingType) {
         List<Staff> resultList = new ArrayList<>();
-        boolean check = false;
         for (int i = 0; i < staffList.size(); i++) {
             if (workingType.equalsIgnoreCase(staffList.get(i).getWorkingType())) {
                 resultList.add(staffList.get(i));
-                check = true;
             }
-        }
-        if (!check){
-            System.err.println("Not found!");
         }
         return resultList;
     }
 
     @Override
     public List<Staff> filterByStatus(boolean status) {
-        boolean check = false;
         List<Staff> resultList = new ArrayList<>();
         for (int i = 0; i < staffList.size(); i++) {
             if (status == staffList.get(i).isStatus()) {
                 resultList.add(staffList.get(i));
-                check = true;
             }
-        }
-        if (!check) {
-            System.err.println("Not found!");
         }
         return resultList;
     }
 
     @Override
     public List<Staff> filterByWorkingPlace(String place) {
-        boolean check = false;
+        List<Staff> resultList = new ArrayList<>();
         for (int i = 0; i < staffList.size(); i++) {
             if (place.equalsIgnoreCase(staffList.get(i).getWorkingPlace())) {
-                staffList.add(staffList.get(i));
-                check = true;
+                resultList.add(staffList.get(i));
             }
         }
-        if (!check) {
-            System.err.println("Not found!");
-        }
-        return staffList;
+        return resultList;
     }
 }

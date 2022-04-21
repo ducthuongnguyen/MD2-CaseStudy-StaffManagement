@@ -5,5 +5,4 @@ import java.util.List;
 public interface IServiceGeneric<T> {
     List<T> findAll();
     void save(T t);
-//    void deleteById(int id);
 }

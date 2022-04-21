@@ -7,30 +7,41 @@ import java.util.Scanner;
 public class StaffView {
     Scanner scanner = new Scanner(System.in);
     StaffController staffController = new StaffController();
-    public StaffView(){
+
+    public StaffView() {
         System.out.println("==================== MENU FOR STAFF ====================");
         System.out.println("Please choose any options: ");
         System.out.println("1.SEARCH STAFF'S INFORMATION");
-        System.out.println("2.LOG OUT");
+        System.out.println("2.SHOW LIST OF STAFF");
+        System.out.println("3.LOG OUT");
         int choice = Integer.parseInt(scanner.nextLine());
-        switch (choice){
+        switch (choice) {
             case 1:
                 search();
                 break;
             case 2:
+                showListStaff();
+                break;
+            case 3:
                 ProfileView.logOut();
                 new Main();
         }
 
     }
 
-    public void backMenuForStaff(){
+    public void backMenuForStaff() {
         System.out.println("Enter quit comeback to MENU");
         String backMenu = scanner.nextLine();
         if (backMenu.equalsIgnoreCase("quit")) {
             new StaffView();
         }
     }
+
+    public void showListStaff() {
+        System.out.println(staffController.showListStaff());
+        backMenuForStaff();
+    }
+
     public void search() {
         System.out.println("==================== SEARCH BY ====================");
         System.out.println("1.STAFF'S NAME");
@@ -43,7 +54,6 @@ public class StaffView {
                 System.out.println("Enter staff's name you want to filter: ");
                 String name = scanner.nextLine();
                 System.out.println(staffController.filterByName(name));
-                System.out.println(name);
                 backMenuForStaff();
                 break;
             case 2:
@@ -72,7 +82,6 @@ public class StaffView {
                 System.out.println("Enter staff's working place you want to filter: ");
                 String place = scanner.nextLine();
                 System.out.println(staffController.filterByWorkingPlace(place));
-                System.out.println("Enter quit comeback to MENU");
                 backMenuForStaff();
                 break;
         }

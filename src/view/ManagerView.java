@@ -5,7 +5,6 @@ import controller.StaffController;
 import controller.UserController;
 import model.Salary;
 import model.Staff;
-import service.salary_calculation.SalaryCalculationIMPL;
 import service.staff.StaffServiceIMPL;
 import service.user.UserServiceIMPL;
 
@@ -19,7 +18,7 @@ public class ManagerView {
     static StaffController staffController = new StaffController();
     static UserController userController = new UserController();
     static SalaryController salaryController = new SalaryController();
-    static SalaryCalculationIMPL salaryCalculationIMPL = new SalaryCalculationIMPL();
+
 
     public ManagerView() {
         System.out.println("==================== MENU FOR MANAGER ====================");
@@ -34,7 +33,7 @@ public class ManagerView {
         System.out.println("8.SHOW SALARY");
         System.out.println("9.DELETE LOGIN ACCOUNT");
         System.out.println("10.SHOW USER LIST");
-        System.out.println("11. LOG OUT");
+        System.out.println("11.LOG OUT");
         int choice = Integer.parseInt(scanner.nextLine());
         switch (choice) {
             case 1:
@@ -176,7 +175,6 @@ public class ManagerView {
             staffController.createStaff(staff);
             Salary staffSalary = new Salary(staff.getId(), staff.getName(), staff.getWorkingType(), staff.getPosition(), Salary.DEFAULT_WORKING_DAYS, salaryController.calculateSlSalary(staff.getPosition(), staff.getWorkingType()));
             salaryController.createSalary(staffSalary);
-//            salaryController.showPayroll();
             backMenuForManager();
         }
     }
@@ -274,7 +272,6 @@ public class ManagerView {
                 System.out.println("Enter staff's working place you want to filter: ");
                 String place = scanner.nextLine();
                 System.out.println(staffController.filterByWorkingPlace(place));
-                System.out.println("Enter quit comeback to MENU");
                 backMenuForManager();
                 break;
         }

@@ -8,7 +8,7 @@ public class Salary implements Serializable {
     public static final int WAGE_PER_HOUR_JUNIOR = 38000;
     public static final int WAGE_PER_HOUR_SENIOR = 58000;
     public static final int WAGE_PER_HOUR_MANAGER = 140000;
-    public static int DEFAULT_WORKING_DAYS = 26;
+    public static final int DEFAULT_WORKING_DAYS = 26;
     private int workingDays;
     private int salaryPerMonth;
     private int id;
@@ -19,10 +19,6 @@ public class Salary implements Serializable {
     public Salary() {
     }
 
-    public Salary(int workingDays, int salaryPerMonth) {
-        this.workingDays = workingDays;
-        this.salaryPerMonth = salaryPerMonth;
-    }
 
     public Salary(int id, String name, String workingType, String position, int defaultWorkingDays, int calculateSlSalary) {
         this.id = id;

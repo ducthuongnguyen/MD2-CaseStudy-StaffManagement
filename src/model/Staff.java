@@ -28,16 +28,6 @@ public class Staff implements Serializable {
         this.department = department;
     }
 
-    public Staff(int id, String name, String gender, boolean status, String workingPlace, String position, String department) {
-        this.id = id;
-        this.name = name;
-        this.gender = gender;
-        this.status = status;
-        this.workingPlace = workingPlace;
-        this.position = position;
-        this.department = department;
-    }
-
     public Staff(String name, boolean status) {
         this.name = name;
         this.status = status;

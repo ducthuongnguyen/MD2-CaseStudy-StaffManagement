@@ -2,7 +2,6 @@ package view;
 
 import controller.UserController;
 import dto.SignUpDTO;
-import model.User;
 import service.user.UserServiceIMPL;
 
 import java.util.HashSet;

@@ -1,7 +1,6 @@
 package service.user;
 
 import config.ConfigReadAndWriteFile;
-import model.Staff;
 import model.User;
 import model.UserPrincipal;
 import service.user_principal.UserPrincipalServiceIMPL;
