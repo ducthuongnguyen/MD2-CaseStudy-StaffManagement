@@ -30,10 +30,13 @@ public class StaffView {
     }
 
     public void backMenuForStaff() {
-        System.out.println("Enter quit comeback to MENU");
-        String backMenu = scanner.nextLine();
-        if (backMenu.equalsIgnoreCase("quit")) {
-            new StaffView();
+        String backMenu = "";
+        while (!backMenu.equalsIgnoreCase("quit")) {
+            System.out.println("ENTER \"QUIT\" TO COME BACK MENU: ");
+            backMenu = scanner.nextLine();
+            if (backMenu.equalsIgnoreCase("quit")) {
+                new StaffView();
+            }
         }
     }
 

@@ -23,6 +23,9 @@ public class Main {
             case 3:
                 new RoleView().showListRole();
                 break;
+            default:
+                System.err.println("Please choose any option!");
+                new Main();
         }
     }
 

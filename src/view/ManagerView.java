@@ -69,15 +69,21 @@ public class ManagerView {
             case 11:
                 ProfileView.logOut();
                 new Main();
+            default:
+                System.err.println("Please choose any option!");
+                new ManagerView();
         }
 
     }
 
     private static void backMenuForManager() {
-        System.out.println("Enter quit comeback to MENU");
-        String backMenu = scanner.nextLine();
-        if (backMenu.equalsIgnoreCase("quit")) {
-            new ManagerView();
+        String backMenu = "";
+        while (!backMenu.equalsIgnoreCase("quit")) {
+            System.out.println("ENTER \"QUIT\" TO COME BACK MENU: ");
+            backMenu = scanner.nextLine();
+            if (backMenu.equalsIgnoreCase("quit")) {
+                new ManagerView();
+            }
         }
     }
 

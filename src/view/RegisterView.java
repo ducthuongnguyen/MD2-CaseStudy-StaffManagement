@@ -72,7 +72,7 @@ public class RegisterView {
         userController.register(signUpDTO);
         System.out.println("Enter quit back to Menu: ");
         String backMenu = scanner.nextLine();
-        if (backMenu.equalsIgnoreCase("quit")) {
+        if (backMenu.equalsIgnoreCase("")) {
             new Main();
         }
 
