@@ -127,25 +127,42 @@ public class ManagerView {
                 }
             }
 
-
-            System.out.println("Enter staff's type of working (PT represent Part-time or FT represents Full-time): ");
-            String workingType;
-            String typeOfWorking;
+            System.out.println("Enter staff's position (Junior/Senior/Manager): ");
+            String position;
             while (true) {
-                workingType = scanner.nextLine();
-                boolean checkWorkingType;
-                checkWorkingType = Pattern.matches("PT|FT", workingType);
-                if (!checkWorkingType) {
-                    System.err.println("The working type failed! Please enter again!");
+                position = scanner.nextLine();
+                boolean checkPosition;
+                checkPosition = Pattern.matches("Junior|Senior|Manager", position);
+                if (!checkPosition) {
+                    System.err.println("The position failed! Please enter again!");
                 } else {
-                    if (workingType.equalsIgnoreCase("PT")) {
-                        typeOfWorking = "Part-time";
-                    } else {
-                        typeOfWorking = "Full-time";
-                    }
                     break;
                 }
             }
+
+            String typeOfWorking = null;
+            if (position.equalsIgnoreCase("junior")) {
+                System.out.println("Enter staff's type of working (PT represent Part-time or FT represents Full-time): ");
+                String workingType;
+                while (true) {
+                    workingType = scanner.nextLine();
+                    boolean checkWorkingType;
+                    checkWorkingType = Pattern.matches("PT|FT", workingType);
+                    if (!checkWorkingType) {
+                        System.err.println("The working type failed! Please enter again!");
+                    } else {
+                        if (workingType.equalsIgnoreCase("PT")) {
+                            typeOfWorking = "Part-time";
+                        } else {
+                            typeOfWorking = "Full-time";
+                        }
+                        break;
+                    }
+                }
+            }else {
+                typeOfWorking = "Full-time";
+            }
+
 
             System.out.println("Enter staff's working place (Hanoi/HCM/Nha Trang): ");
             String workingPlace;
@@ -160,18 +177,6 @@ public class ManagerView {
                 }
             }
 
-            System.out.println("Enter staff's position (Junior/Senior/Manager): ");
-            String position;
-            while (true) {
-                position = scanner.nextLine();
-                boolean checkPosition;
-                checkPosition = Pattern.matches("Junior|Senior|Manager", position);
-                if (!checkPosition) {
-                    System.err.println("The position failed! Please enter again!");
-                } else {
-                    break;
-                }
-            }
 
             System.out.println("Enter staff's department, press Enter to skip: ");
             String department = scanner.nextLine();

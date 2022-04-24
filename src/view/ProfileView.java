@@ -9,9 +9,9 @@ import java.util.Set;
 
 
 public class ProfileView {
-    List<UserPrincipal> userPrincipalList = UserPrincipalServiceIMPL.userPrincipalsList;
     static UserPrincipalServiceIMPL userPrincipalServiceIMPL = new UserPrincipalServiceIMPL();
     public ProfileView() {
+        List<UserPrincipal> userPrincipalList = UserPrincipalServiceIMPL.userPrincipalsList;
         Set<String> roleSet = userPrincipalList.get(0).getRoleSet();
         List<String> roleList = new ArrayList<>(roleSet);
         boolean checkPermission = roleList.get(0).equals("MANAGER");
