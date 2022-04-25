@@ -34,39 +34,39 @@ public class ManagerView {
         System.out.println("9.DELETE LOGIN ACCOUNT");
         System.out.println("10.SHOW USER LIST");
         System.out.println("11.LOG OUT");
-        int choice = Integer.parseInt(scanner.nextLine());
+        String choice = scanner.nextLine();
         switch (choice) {
-            case 1:
+            case "1":
                 formCreateStaff();
                 break;
-            case 2:
+            case "2":
                 search();
                 break;
-            case 3:
+            case "3":
                 checkStatus();
                 break;
-            case 4:
+            case "4":
                 editStaff();
                 break;
-            case 5:
+            case "5":
                 changeStatus();
                 break;
-            case 6:
+            case "6":
                 deleteStaff();
                 break;
-            case 7:
+            case "7":
                 showListStaff();
                 break;
-            case 8:
+            case "8":
                 showPayroll();
                 break;
-            case 9:
+            case "9":
                 deleteAccount();
                 break;
-            case 10:
+            case "10":
                 showUserList();
                 break;
-            case 11:
+            case "11":
                 ProfileView.logOut();
                 new Main();
             default:
@@ -249,15 +249,15 @@ public class ManagerView {
         System.out.println("2.WORKING TYPE");
         System.out.println("3.STATUS");
         System.out.println("4.PLACE OF WORKING");
-        int choice = Integer.parseInt(scanner.nextLine());
+        String choice = scanner.nextLine();
         switch (choice) {
-            case 1:
+            case "1":
                 System.out.println("Enter staff's name you want to filter: ");
                 String name = scanner.nextLine();
                 System.out.println(staffController.filterByName(name));
                 backMenuForManager();
                 break;
-            case 2:
+            case "2":
                 System.out.println("Enter staff's working type you want to filter (PT/FT): ");
                 String workingType = scanner.nextLine();
                 String typeToSearch = null;
@@ -272,14 +272,14 @@ public class ManagerView {
                 System.out.println(staffController.filterByWorkingType(typeToSearch));
                 backMenuForManager();
                 break;
-            case 3:
+            case "3":
                 System.out.println("Enter staff's working status you want to filter(true - working/false - retired): ");
                 boolean status = scanner.nextBoolean();
                 scanner.nextLine();
                 System.out.println(staffController.filterByStatus(status));
                 backMenuForManager();
                 break;
-            case 4:
+            case "4":
                 System.out.println("Enter staff's working place you want to filter: ");
                 String place = scanner.nextLine();
                 System.out.println(staffController.filterByWorkingPlace(place));
