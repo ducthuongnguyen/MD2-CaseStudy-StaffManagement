@@ -26,7 +26,7 @@ public class SalaryCalculationIMPL implements ISalaryCalculation {
     public int calculateSalary(String position, String workingType) {
         int baseSalary;
         if (position.equals("Junior")) {
-            if (workingType.equalsIgnoreCase("parttime")) {
+            if (workingType.equalsIgnoreCase("part-time")) {
                 baseSalary = Salary.WORKING_HOURS_PARTTIME * Salary.WAGE_PER_HOUR_JUNIOR * Salary.DEFAULT_WORKING_DAYS;
             } else {
                 baseSalary = Salary.WAGE_PER_HOUR_JUNIOR * Salary.WORKING_HOURS_FULLTIME * Salary.DEFAULT_WORKING_DAYS;

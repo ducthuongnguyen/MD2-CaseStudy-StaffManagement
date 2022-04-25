@@ -3,6 +3,7 @@ package service.staff;
 import config.ConfigReadAndWriteFile;
 import model.Salary;
 import model.Staff;
+import service.salary_calculation.SalaryCalculationIMPL;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ public class StaffServiceIMPL implements IStaffService {
     public final static String PATH_STAFF = ConfigReadAndWriteFile.PATH + "staff.txt";
     public static List<Staff> staffList = new ConfigReadAndWriteFile<Staff>().readFromFile(PATH_STAFF);
     public final static String PATH_SALARY = ConfigReadAndWriteFile.PATH + "salary.txt";
+    SalaryCalculationIMPL salaryCalculationIMPL = new SalaryCalculationIMPL();
 
     @Override
     public List<Staff> findAll() {
@@ -66,10 +68,16 @@ public class StaffServiceIMPL implements IStaffService {
     public void editStaff(int id, String newName, String newWorkingType) {
         for (int i = 0; i < staffList.size(); i++) {
             if (id == staffList.get(i).getId()) {
-                staffList.get(i).setName(newName);
-                staffList.get(i).setWorkingType(newWorkingType);
-                salaryList.get(i).setName(newName);
-                salaryList.get(i).setWorkingType(newWorkingType);
+                if (staffList.get(i).getPosition().equalsIgnoreCase("Junior")){
+                    staffList.get(i).setName(newName);
+                    staffList.get(i).setWorkingType(newWorkingType);
+                    salaryList.get(i).setName(newName);
+                    salaryList.get(i).setWorkingType(newWorkingType);
+                    salaryList.get(i).setSalaryPerMonth(salaryCalculationIMPL.calculateSalary(salaryList.get(i).getPosition(),salaryList.get(i).getWorkingType()));
+                }else {
+                    staffList.get(i).setName(newName);
+                    salaryList.get(i).setName(newName);
+                }
                 new ConfigReadAndWriteFile<Salary>().writeToFile(PATH_SALARY, salaryList);
             }
         }
