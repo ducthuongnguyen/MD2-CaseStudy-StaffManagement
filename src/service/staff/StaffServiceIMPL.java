@@ -68,6 +68,9 @@ public class StaffServiceIMPL implements IStaffService {
             if (id == staffList.get(i).getId()) {
                 staffList.get(i).setName(newName);
                 staffList.get(i).setWorkingType(newWorkingType);
+                salaryList.get(i).setName(newName);
+                salaryList.get(i).setWorkingType(newWorkingType);
+                new ConfigReadAndWriteFile<Salary>().writeToFile(PATH_SALARY, salaryList);
             }
         }
     }
